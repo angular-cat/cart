@@ -8,10 +8,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {MaterialModule} from "./material/material.module";
+import {HomeComponent} from './home/home.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {CartComponent} from './cart/cart.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        NavbarComponent,
+        CartComponent
     ],
     imports: [
         BrowserModule,
@@ -19,6 +26,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
+        MaterialModule
     ],
     providers: [],
     bootstrap: [AppComponent]
