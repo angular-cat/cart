@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<div class="container">
+    <pre>{{ cart$ | async | json }}</pre>
+    <button class="btn btn-outline-danger" (click)="clearCart()">
+        <i class="fa-solid fa-eraser"></i> Clear Cart
+    </button>
+</div>
