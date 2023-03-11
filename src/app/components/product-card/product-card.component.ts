@@ -10,7 +10,6 @@ export class ProductCardComponent implements OnInit {
 
     @Input() product!: Product;
 
-    showAddToCart: boolean = false;
     quantity: number = 1;
 
     constructor() {
@@ -29,16 +28,11 @@ export class ProductCardComponent implements OnInit {
     }
 
     addToCart() {
-        console.log('Product Name: ' + this.product.productName);
-        console.log('Product Price: ' + this.product.productPrice);
-        console.log('Quantity: ' + this.quantity);
+        console.log(
+            'Product: ' + this.product.productName + '; ' +
+            'Price: ' + this.product.productPrice + '; ' +
+            'Quantity: ' + this.quantity
+        );
         this.quantity = 1;
-        this.showAddToCart = false;
     }
-
-    closeAddToCart() {
-        this.quantity = 1;
-        this.showAddToCart = false;
-    }
-
 }

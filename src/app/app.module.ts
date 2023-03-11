@@ -12,8 +12,10 @@ import {MaterialModule} from "./material/material.module";
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CartComponent} from './cart/cart.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { FooterComponent } from './components/footer/footer.component';
+import {ProductCardComponent} from './components/product-card/product-card.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {ContactComponent} from './contact/contact.component';
+import {AboutComponent} from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './components/footer/footer.component';
         NavbarComponent,
         CartComponent,
         ProductCardComponent,
-        FooterComponent
+        FooterComponent,
+        ContactComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
