@@ -12,13 +12,17 @@ import {MaterialModule} from "./material/material.module";
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CartComponent} from './cart/cart.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         NavbarComponent,
-        CartComponent
+        CartComponent,
+        ProductCardComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,

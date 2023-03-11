@@ -1,3 +1,17 @@
-<div class="py-5">
-    <h1>{{ title }}</h1>
+<div class="py-2">
+    <div class="container">
+        <div *ngIf="isLoading; else content">
+            <div class="wrapper-spinner">
+                <mat-spinner color="accent"></mat-spinner>
+            </div>
+        </div>
+        <ng-template #content>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <ng-container *ngFor="let product of products">
+                    <app-product-card [product]="product"></app-product-card>
+                </ng-container>
+            </div>
+        </ng-template>
+    </div>
 </div>
+<!--<pre>{{ products | json }}</pre>-->
