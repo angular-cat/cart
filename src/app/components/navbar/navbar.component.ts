@@ -12,11 +12,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     quantity: number = 0;
     cart$!: Subscription;
+    timer!: ReturnType<typeof setTimeout>
 
     constructor(private cartService: CartService) {
     }
 
     ngOnInit(): void {
+        this.getCartTimeOut();
+    }
+
+    getCartTimeOut() {
+        this.timer = setTimeout(() => {
+            this.getCart();
+        }, 800);
         this.getCart();
     }
 
@@ -32,5 +40,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.cart$.unsubscribe();
+        clearTimeout(this.timer);
     }
 }
