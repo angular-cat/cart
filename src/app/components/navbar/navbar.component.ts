@@ -11,35 +11,22 @@ import {Cart} from "../../models/cart";
 export class NavbarComponent implements OnInit, OnDestroy {
 
     quantity: number = 0;
+
     cart$!: Subscription;
-    timer!: ReturnType<typeof setTimeout>
 
     constructor(private cartService: CartService) {
     }
 
-    ngOnInit(): void {
-        this.getCartTimeOut();
-    }
-
-    getCartTimeOut() {
-        this.timer = setTimeout(() => {
-            this.getCart();
-        }, 800);
-        this.getCart();
-    }
-
-    getCart() {
-        this.cart$ = this.cartService.getCart()
-            .subscribe((cart: Cart) => {
-                this.quantity = 0;
-                for (let productId in cart.items) {
-                    this.quantity += cart.items[productId].quantity;
-                }
-            });
+    async ngOnInit() {
+        this.cart$ = (await this.cartService.getCart()).subscribe((cart: Cart) => {
+            this.quantity = 0;
+            for (let productKey in cart.items) {
+                this.quantity += cart.items[productKey].quantity;
+            }
+        });
     }
 
     ngOnDestroy() {
         this.cart$.unsubscribe();
-        clearTimeout(this.timer);
     }
 }

@@ -15,15 +15,11 @@ export class CartComponent implements OnInit {
     constructor(private cartService: CartService) {
     }
 
-    ngOnInit(): void {
-        this.getCart();
-    }
-
-    getCart() {
-        this.cart$ = this.cartService.getCart();
+    async ngOnInit() {
+        this.cart$ = await this.cartService.getCart();
     }
 
     clearCart() {
-        this.cartService.clearCart();
+        this.cartService.clearCart().then();
     }
 }
